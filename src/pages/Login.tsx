@@ -8,14 +8,12 @@ const Login: FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const { login, isLoading } = useAuth();
-console.log(credentials);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError('');
     
     const success = await login(credentials.username, credentials.password);
-    console.log(success);
     
     if (!success) {
       setError('Invalid credentials');
